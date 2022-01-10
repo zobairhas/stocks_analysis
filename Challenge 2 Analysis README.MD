@@ -22,7 +22,7 @@ Afterwards, I refactored the VBA code so that it runs faster.
 
 **2018 All Stocks Analysis:**
 
-![2018 All Stocks Analysis](https://user-images.githubusercontent.com/44425379/148719495-1d75983f-43b5-42ee-8ef9-e599bc258910.png)
+![2018 All Stocks Analysis](https://user-images.githubusercontent.com/44425379/148719590-5a477a4a-b16d-406b-b7f7-c27e82d8bdb3.png)
 
 ## Performance Time for Original Script vs. Refactored Script
 - After refactoring the original script, I was able to significantly improve the performance time. 
