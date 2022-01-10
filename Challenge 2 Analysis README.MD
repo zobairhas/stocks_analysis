@@ -9,11 +9,15 @@ Afterwards, I refactored the VBA code so that it runs faster.
 ## Results (analysis is well described with screenshots and code)
 
 ### Using images and examples of your code, compare the stock performance between 2017 and 2018, as well as the execution times of the original script and the refactored script.
-- Based on returns, it would appear that 2017 was a much better year for these tickers/companies compared to 2018. 
+-Based on returns, it would appear that 2017 was a much better year for these tickers/companies versus 2018. 
 -Only two tickers/companies gave positive returns in 2018 (ENPH and RUN).
--Performance wise, they're both similar with the 2017 script being slightly slower.
-<insert 2017 image>
-<insert 2018 image>
+-Performance-wise, they're both similar. The 2017 script was slightly slower.
+
+**2017:**
+(https://github.com/zobisurf/stocks-analysis/blob/main/All_Stocks_Analysis_VBA_Original_2017.png)
+
+**2018:**
+(https://github.com/zobisurf/stocks-analysis/blob/main/All_Stocks_Analysis_VBA_Original_2018.png)
 
 ### Performance Time for Original Script vs. Refactored Script
 -After refactoring the original script, I was able to signifnicaltly improve the performance time. 
