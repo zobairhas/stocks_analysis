@@ -8,22 +8,31 @@ Afterwards, I refactored the VBA code so that it runs faster.
 
 ## Results (analysis is well described with screenshots and code)
 
-### Using images and examples of your code, compare the stock performance between 2017 and 2018, as well as the execution times of the original script and the refactored script.
--Based on returns, it would appear that 2017 was a much better year for these tickers/companies versus 2018. 
--Only two tickers/companies gave positive returns in 2018 (ENPH and RUN).
--Performance-wise, they're both similar. The 2017 script was slightly slower.
+- Based on returns, it would appear that 2017 was a much better year for these tickers/companies versus 2018.
+- Only two tickers/companies gave positive returns in 2018 (ENPH and RUN).
+- Performance-wise, they're both similar. The 2017 script was slightly slower.
 
-**2017:**
-(https://github.com/zobisurf/stocks-analysis/blob/main/All_Stocks_Analysis_VBA_Original_2017.png)
+<br>
 
-**2018:**
-(https://github.com/zobisurf/stocks-analysis/blob/main/All_Stocks_Analysis_VBA_Original_2018.png)
+**2017 All Stocks Analysis:**
 
-### Performance Time for Original Script vs. Refactored Script
--After refactoring the original script, I was able to signifnicaltly improve the performance time. 
-Serrveral reasons for this:
-	-the origal script used a nested `for` loop that was constantly checking information agaisnt the spreadsheet. 
-	   '4) Loop through tickers
+![2017 All Stocks Analysis](https://user-images.githubusercontent.com/44425379/148717889-efef3765-570f-4eb1-9f28-64df9f458928.png)
+
+<br>
+
+**2018 All Stocks Analysis:**
+
+![2018 All Stocks Analysis](https://user-images.githubusercontent.com/44425379/148719013-849cac19-a6b4-4958-a4cd-e1297e257cf1.png)
+
+## Performance Time for Original Script vs. Refactored Script
+- After refactoring the original script, I was able to significantly improve the performance time. 
+- Several reasons for this:
+
+ **1)** The original script used a nested `for` loop that was constantly checking information against the spreadsheet. 
+
+```
+Old script for All Stocks Analysis
+
    For i = 0 To 11
        ticker = tickers(i)
        totalVolume = 0
@@ -57,25 +66,27 @@ Serrveral reasons for this:
        Cells(4 + i, 3).Value = endingPrice / startingPrice - 1
 
    Next i
-   
-   -Additionally, none of the variables were set up as arrays that could be indexed. In the below example, you can see the difference. 
-   
-    '3a) Initialize variables for starting price and ending price
-	Dim startingPrice As Single
-    Dim endingPrice As Single
 
+```
+
+**2)** None of the variables were set up as arrays that could be indexed. In the below example, you can see the difference. 
+```  
+Old script for All Stocks Analysis
+   '3a) Initialize variables for starting price and ending price
+    Dim startingPrice As Single
+    Dim endingPrice As Single
+```
+
+```
+Refactored script 
    'Output arrays
     Dim tickerStartingPrices(12) As Single
     Dim tickerEndingPrices(12) As Single
     Dim tickerVolumes(12) As Long
-	
-	-By setting up arrays, we can index the information once instead of referencing the sheet over and over again. Ultimately, this lead to me using single `for` loops to loop through the information.
-	
-	   'Output arrays
-    Dim tickerStartingPrices(12) As Single
-    Dim tickerEndingPrices(12) As Single
-    Dim tickerVolumes(12) As Long
-   
+```	
+**3)** By setting up arrays, we can index the information once instead of referencing the sheet over and over again. Ultimately, this leads to me using single `for` loops.
+
+```   
     'Create a for loop to initialize the tickerVolumes to zero
      For i = 0 To 11
         
@@ -121,22 +132,35 @@ Serrveral reasons for this:
         Cells(4 + k, 3).Value = tickerEndingPrices(k) / tickerStartingPrices(k) - 1
     
     Next k
-	
-	-This is not the full code of course, but once the script is run you get the following run times:
-	
-	<image challenge 2018>
-	<image challenge 2017>
+
+```	
+**4)** The above is not the full code, but once the script is run you get the following:
+
+<br>
+
+**2017 Refactored Script:**
+
+![2017 Refactored Script](https://user-images.githubusercontent.com/44425379/148718186-b62ea47e-cc47-4d42-85ee-85d6904fb7a9.png)
+
+<br>
+
+**2018 Refactored Script:**
+
+![2018 Refactored Script](https://user-images.githubusercontent.com/44425379/148718195-111b0e5f-ce16-4fcc-9282-b5a6b55bd782.png)
+
+
 
 ## Summary
 - What are the advantages and disadvantages of refactoring code in general?
-	- Advantages of refactoring code in general allows the person to optimize inefficient code, find code smells/reduce tech debt, and make the code overall easier to understand. 
-	-It's also interesting to see different solutions regardless if they are optimal or not. 
-	-Disadvantages of refactoring code in general is that it's time consuming. Having to learn how someone else coded something especially if comments are there or items aren't clearly defined it could cause confusing and potentially introduce more bugs.
-	-Using personal work experience, refactoring is almost always done at the start of the sprint or well ahead of any hard deadlines because of the risks asscistedaited. 
+	- Advantages of refactoring code allow the person to optimize inefficient code, find code smells/reduce tech debt, and make the code overall easier to understand. 
+	- It's also interesting to see different solutions regardless of whether they are optimal or not. 
+	- Disadvantage of refactoring code is that it's time-consuming. Learning how someone else coded something, especially if variables don't intuitively make sense, could cause confusion. Leading to time being wasted or it could potentially introduce more bugs in the future. 
 
-- There is a detailed statement on the advantages and disadvantages of the original and refactored VBA script
-	- Advantages of the original script is that it's easier to write out and it's less time consuming to create the overall solution even though it's not optimal for performance. Less items to maintain and keep track of.
-	-Disadvantages of the original script is that it's slower and it's technically not using best practices even though the solution works. 
-	-Advantages of the rafactored script includes better performance time, but it is harder to mess up as there are more items to keep track of. It's slightly more time consuming. 
+- What are the advantages and disadvantages of the original script and refactored VBA script?
+	- Advantage of the original script is that it's easier to write out, and it's less time-consuming to create the overall solution even though it's not optimal for performance. Fewer items to maintain and keep track of.
+	- Disadvantage of the original script is that it's slower, and it's not using best practices even though the solution works. 
+	- Advantage of the refactored script includes better performance time.
+	- Disadvantage is that refactoring code is slightly more time-consuming. Also, it is easier to mess up the code as there are more items to keep track of. 
+	
 	
 	
