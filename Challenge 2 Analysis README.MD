@@ -16,13 +16,13 @@ Afterwards, I refactored the VBA code so that it runs faster.
 
 **2017 All Stocks Analysis:**
 
-![2017 All Stocks Analysis](https://user-images.githubusercontent.com/44425379/148717889-efef3765-570f-4eb1-9f28-64df9f458928.png)
+![2017 All Stocks Analysis](https://user-images.githubusercontent.com/44425379/148719473-a7b54e23-2a85-4bec-842f-e04c0758f611.png)
 
 <br>
 
 **2018 All Stocks Analysis:**
 
-![2018 All Stocks Analysis](https://user-images.githubusercontent.com/44425379/148719013-849cac19-a6b4-4958-a4cd-e1297e257cf1.png)
+![2018 All Stocks Analysis](https://user-images.githubusercontent.com/44425379/148719495-1d75983f-43b5-42ee-8ef9-e599bc258910.png)
 
 ## Performance Time for Original Script vs. Refactored Script
 - After refactoring the original script, I was able to significantly improve the performance time. 
@@ -140,14 +140,13 @@ Refactored script
 
 **2017 Refactored Script:**
 
-![2017 Refactored Script](https://user-images.githubusercontent.com/44425379/148718186-b62ea47e-cc47-4d42-85ee-85d6904fb7a9.png)
+![2017 Refactored Script](https://user-images.githubusercontent.com/44425379/148719518-10b9f104-f339-4ab0-bce6-b9a71ad56167.png)
 
 <br>
 
 **2018 Refactored Script:**
 
-![2018 Refactored Script](https://user-images.githubusercontent.com/44425379/148718195-111b0e5f-ce16-4fcc-9282-b5a6b55bd782.png)
-
+![2018 Refactored Script](https://user-images.githubusercontent.com/44425379/148719544-1065e203-3813-48a4-9ee0-86b9c0d29d85.png)
 
 
 ## Summary
@@ -161,6 +160,3 @@ Refactored script
 	- Disadvantage of the original script is that it's slower, and it's not using best practices even though the solution works. 
 	- Advantage of the refactored script includes better performance time.
 	- Disadvantage is that refactoring code is slightly more time-consuming. Also, it is easier to mess up the code as there are more items to keep track of. 
-	
-	
-	
